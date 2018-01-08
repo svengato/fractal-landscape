@@ -1,7 +1,6 @@
 library(shiny)
 options(rgl.useNULL = TRUE)
 library(rgl)
-library(rglwidget)
 
 # Define the user interface
 shinyUI(fluidPage(

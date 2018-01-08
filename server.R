@@ -1,8 +1,3 @@
-# library(shiny)
-# options(rgl.useNULL = TRUE)
-# library(rgl)
-# library(rglwidget)
-
 source("fractal-landscape.R", local = TRUE)
 
 # Define the server logic
