@@ -1,6 +1,8 @@
+# --------------------------------------------------------------
 library(shiny)
 options(rgl.useNULL = TRUE)
 library(rgl)
+# --------------------------------------------------------------
 
 # Define the user interface
 shinyUI(fluidPage(
@@ -15,7 +17,7 @@ shinyUI(fluidPage(
     "<br>&bull; Peitgen, J&uuml;rgens, and Saupe, <i>Chaos and Fractals: New Frontiers of Science</i>"
   ))),
   p("Decrease the fractal dimension for smoother landscapes, increase it for more jagged ones."),
-  
+
   sidebarPanel(
     sliderInput("sldAlt", label = "Altitude Scale", min = 1, max = 8, value = 4),
     sliderInput("sldDim", label = "Dimension", min = 2, max = 3, step = 0.1, value = 2.5),
@@ -30,3 +32,5 @@ shinyUI(fluidPage(
     rglwidgetOutput("plotFL")
   )
 ))
+
+# --------------------------------------------------------------

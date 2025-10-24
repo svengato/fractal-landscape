@@ -1,4 +1,6 @@
+# --------------------------------------------------------------
 source("fractal-landscape.R", local = TRUE)
+# --------------------------------------------------------------
 
 # Define the server logic
 shinyServer(function(input, output) {
@@ -9,3 +11,5 @@ shinyServer(function(input, output) {
     rglwidget()
   })
 })
+
+# --------------------------------------------------------------

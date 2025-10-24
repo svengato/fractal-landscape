@@ -1,5 +1,4 @@
-library(rgl)
-
+# --------------------------------------------------------------
 # Fractal landscape generator, inspired by
 # Mandelbrot, "Stochastic Models for the Earth's Relief,
 #   the Shape and the Fractal Dimension of the Coastlines, and the Number-Area Rule for Islands",
@@ -8,6 +7,9 @@ library(rgl)
 # Peitgen, Jürgens, and Saupe, Chaos and Fractals: New Frontiers of Science
 #
 # Decrease the fractal dimension for smoother landscapes, increase it for more jagged ones.
+# --------------------------------------------------------------
+library(rgl)
+# --------------------------------------------------------------
 
 fractalLandscape <- function(altitudeScale = 4, fractalDimension = 2.5, seed = 42) {
   l <- altitudeScale
@@ -46,7 +48,7 @@ fractalLandscape <- function(altitudeScale = 4, fractalDimension = 2.5, seed = 4
       }
       i <- i + 2*s
     }
-    
+
     # Scale down l before step 2
     l <- l*f
     # Step 2: set altitudes of midpoints of corners and points from step 1
@@ -93,7 +95,7 @@ plotFractalLandscape <- function(mx.alt, displayWater = TRUE) {
   # terrain color scheme
   ntc <- 8
   tc <- terrain.colors(ntc)
-  
+
   # to display water, set negative altitudes to zero
   if (displayWater) {
     zmin <- 0
@@ -103,7 +105,7 @@ plotFractalLandscape <- function(mx.alt, displayWater = TRUE) {
   } else {
     tc <- c(tc[1], tc)
   }
-  
+
   diffAlt <- diff(range(mx.alt))
   minAlt <- min(mx.alt)
   zColor <- tc[ceiling(ntc*(mx.alt - minAlt)/diffAlt) + 1]
@@ -112,6 +114,10 @@ plotFractalLandscape <- function(mx.alt, displayWater = TRUE) {
   surface3d(1:nrow(mx.alt), 1:ncol(mx.alt), mx.alt, color = zColor)
 }
 
+# --------------------------------------------------------------
+
 # Example usage
 # plotFractalLandscape(fractalLandscape())
 # plotFractalLandscape(fractalLandscape(), displayWater = FALSE)
+
+# --------------------------------------------------------------
