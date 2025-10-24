@@ -91,15 +91,14 @@ fractalLandscape <- function(altitudeScale = 4, fractalDimension = 2.5, seed = 4
   mx.alt
 }
 
-plotFractalLandscape <- function(mx.alt, displayWater = TRUE) {
+plotFractalLandscape <- function(mx.alt, displayWater = TRUE, waterLevel = 0) {
   # terrain color scheme
   ntc <- 8
   tc <- terrain.colors(ntc)
 
   # to display water, set negative altitudes to zero
   if (displayWater) {
-    zmin <- 0
-    mx.alt[mx.alt < zmin] <- zmin
+    mx.alt[mx.alt < waterLevel] <- waterLevel
     waterColor <- "blue"
     tc <- c(waterColor, tc)
   } else {

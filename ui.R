@@ -22,7 +22,8 @@ shinyUI(fluidPage(
     sliderInput("sldAlt", label = "Altitude Scale", min = 1, max = 8, value = 4),
     sliderInput("sldDim", label = "Dimension", min = 2, max = 3, step = 0.1, value = 2.5),
     numericInput("spnSeed", label = "Seed", min = 1, max = 100000, value = 42, width = 100),
-    checkboxInput("chkWater", label = "Show Water", value = TRUE)
+    checkboxInput("chkWater", label = "Show Water", value = TRUE),
+    conditionalPanel("input.chkWater == true", sliderInput("waterLevel", label = "Water Level", min = -10, max = 10, step = 1, value = 0))
   ),
 
   mainPanel(

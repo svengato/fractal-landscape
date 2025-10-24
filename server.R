@@ -7,7 +7,7 @@ shinyServer(function(input, output) {
   observe({
     output$plotFL <- renderRglwidget({
       mx.alt <- fractalLandscape(altitudeScale = input$sldAlt, fractalDimension = input$sldDim, seed = input$spnSeed)
-      plotFractalLandscape(mx.alt, displayWater = input$chkWater)
+      plotFractalLandscape(mx.alt, displayWater = input$chkWater, waterLevel = input$waterLevel)
       rglwidget()
     })
   })
